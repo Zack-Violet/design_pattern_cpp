@@ -3,6 +3,8 @@
 #include <string>
 #include <memory>
 
+
+// 抽象产品
 class Product
 {
     public:
@@ -11,6 +13,7 @@ class Product
         virtual std::string getName() = 0;
 };
 
+// 具体产品A
 class ConcreteProductA : public Product
 {
     public:
@@ -25,6 +28,7 @@ class ConcreteProductA : public Product
         }
 };
 
+// 具体产品B
 class ConcreteProductB : public Product
 {
     public:
@@ -39,6 +43,7 @@ class ConcreteProductB : public Product
         }
 };
 
+// 抽象工厂
 class Factory
 {
     public:
@@ -46,6 +51,7 @@ class Factory
         virtual Product* createProduct() = 0;
 };
 
+// 生产产品A的具体工厂
 class ConcreteProductAFactory : public Factory
 {
     public:
@@ -57,6 +63,7 @@ class ConcreteProductAFactory : public Factory
         }
 };
 
+// 生产产品B的具体工厂
 class ConcreteProductBFactory : public Factory
 {
     public:
