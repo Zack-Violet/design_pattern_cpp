@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 
+// 抽象产品
 class product
 {
     public:
@@ -13,6 +14,7 @@ class product
         virtual void use() = 0;
 };
 
+// 具体产品A
 class ConcreteProductA : public product
 {
     public:
@@ -33,6 +35,7 @@ class ConcreteProductA : public product
         }
 };
 
+// 具体产品B
 class ConcreteProductB : public product
 {
     public:
@@ -53,6 +56,7 @@ class ConcreteProductB : public product
         }
 };
 
+// 根据选项选择生产对应的产品
 class factory
 {
     public:
