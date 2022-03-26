@@ -2,6 +2,7 @@
 #include <string>
 #include <memory>
 
+// A公司
 class ProductA
 {
     public:
@@ -10,6 +11,7 @@ class ProductA
         virtual std::string getName() = 0;
 };
 
+// A公司的产品X
 class ConcreteProductAX : public ProductA
 {
     public:
@@ -24,6 +26,7 @@ class ConcreteProductAX : public ProductA
         }
 };
 
+// A公司的产品Y
 class ConcreteProductAY : public ProductA
 {
     public:
@@ -38,6 +41,7 @@ class ConcreteProductAY : public ProductA
         }
 };
 
+// B公司
 class ProductB
 {
     public:
@@ -46,6 +50,7 @@ class ProductB
         virtual std::string getName() = 0;
 };
 
+// B公司的产品X
 class ConcreteProductBX : public ProductB
 {
     public:
@@ -60,6 +65,7 @@ class ConcreteProductBX : public ProductB
         }
 };
 
+// B公司的产品Y
 class ConcreteProductBY : public ProductB
 {
     public:
@@ -74,6 +80,7 @@ class ConcreteProductBY : public ProductB
         }
 };
 
+// 工厂
 class Factory
 {
     public:
@@ -81,7 +88,7 @@ class Factory
         virtual ProductA* CreateProductA() = 0;
         virtual ProductB* CreateProductB() = 0;
 };
-
+// 生产X产品的工厂
 class ConcreteFactoryX : public Factory
 {
     public:
@@ -98,6 +105,7 @@ class ConcreteFactoryX : public Factory
         }
 };
 
+// 生产Y产品的工厂
 class ConcreteFactoryY : public Factory
 {
     public:
