@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <memory>
 
 class singleton
 {
@@ -14,9 +13,9 @@ class singleton
                 instance = new singleton();
             return instance;
         }
-        void instanceOperation()
+        void instanceOperation(const std::string& str)
         {
-            std::cout << "some operation" << std::endl;
+            std::cout << "some operation : " << str << std::endl;
         }
 
     private:
@@ -31,7 +30,7 @@ singleton* singleton::instance = nullptr;
 int main()
 {
     singleton* sg = singleton::getInstance();
-    sg->instanceOperation();
+    sg->instanceOperation("do something");
 
     return 0;
 }
