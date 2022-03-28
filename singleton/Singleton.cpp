@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
-#include <memory>
 
 class singleton
 {
     public:
+        singleton(const sington&) = delete;
+        singleton& operator=(const singleton&) = delete;
         ~singleton() {}
         static singleton* getInstance()
         {
@@ -12,9 +13,9 @@ class singleton
                 instance = new singleton();
             return instance;
         }
-        void instanceOperation()
+        void instanceOperation(const std::string& str)
         {
-            std::cout << "some operation" << std::endl;
+            std::cout << "some operation : " << str << std::endl;
         }
 
     private:
@@ -29,7 +30,7 @@ singleton* singleton::instance = nullptr;
 int main()
 {
     singleton* sg = singleton::getInstance();
-    sg->instanceOperation();
+    sg->instanceOperation("do something");
 
     return 0;
 }
