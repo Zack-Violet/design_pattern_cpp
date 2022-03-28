@@ -5,6 +5,8 @@
 class singleton
 {
     public:
+        singleton(const sington&) = delete;
+        singleton& operator=(const singleton&) = delete;
         ~singleton() {}
         static singleton* getInstance()
         {
