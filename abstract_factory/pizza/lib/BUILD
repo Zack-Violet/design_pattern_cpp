@@ -26,5 +26,6 @@ cc_library(
         deps = [
                 ":PizzaIngredientFactory",
                 ":Pizza",
+                "//proto:customer_Addressbook_cc_proto",
                 ],
         )
