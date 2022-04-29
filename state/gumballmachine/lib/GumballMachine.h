@@ -12,6 +12,7 @@ class GumballMachine
     public:
         GumballMachine(short _gumball_num_);
         ~GumballMachine() {}
+        void startWork() const;
         void insertQuarter() const;
         void ejectQuarter() const;
         void turnCrank() const;

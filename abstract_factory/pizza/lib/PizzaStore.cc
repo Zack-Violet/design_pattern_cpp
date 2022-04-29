@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <iomanip>
 #include "include/Pizza.h"
 #include "include/PizzaIngredientFactory.h"
 #include "include/PizzaStore.h"
 
 PizzaStore::PizzaStore()
 {
-    std::cout << "PizzaStore construct" << std::endl;
+    std::cout << std::setw(40) << "PizzaStore construct" << std::endl;
 }
 PizzaStore::~PizzaStore()
 {
-    std::cout << "PizzaStore destruct" << std::endl;
+    std::cout << std::setw(39) << "PizzaStore destruct" << std::endl;
 }
 std::unique_ptr<Pizza> PizzaStore::orderPizza(const char _choose)
 {
@@ -26,11 +27,11 @@ std::unique_ptr<Pizza> PizzaStore::orderPizza(const char _choose)
 
 NYPizzaStore::NYPizzaStore()
 {
-    std::cout << "NYPizzaStore construct" << std::endl;
+    std::cout << std::setw(40) << "NYPizzaStore construct" << std::endl;
 }
 NYPizzaStore::~NYPizzaStore()
 {
-    std::cout << "NYPizzaStore destruct" << std::endl;
+    std::cout << std::setw(39) << "NYPizzaStore destruct" << std::endl;
 }
 void NYPizzaStore::createPizza(const char _choose_)
 {
@@ -62,11 +63,11 @@ void NYPizzaStore::createPizza(const char _choose_)
 
 ChicagoPizzaStore::ChicagoPizzaStore()
 {
-    std::cout << "ChicagoPizzaStore construct" << std::endl;
+    std::cout << std::setw(40) << "ChicagoPizzaStore construct" << std::endl;
 }
 ChicagoPizzaStore::~ChicagoPizzaStore()
 {
-    std::cout << "ChicagoPizzaStore destruct" << std::endl;
+    std::cout << std::setw(39) << "ChicagoPizzaStore destruct" << std::endl;
 }
 void ChicagoPizzaStore::createPizza(const char _choose_)
 {

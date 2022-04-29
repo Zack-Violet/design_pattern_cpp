@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <iomanip>
 #include "include/Pizza.h"
 #include "include/PizzaIngredientFactory.h"
 
 Pizza::Pizza()
 {
-    std::cout << "Pizza construct" << std::endl;
+    std::cout << std::setw(40) << "Pizza construct" << std::endl;
 }
 
 Pizza::~Pizza()
 {
-    std::cout << "Pizza destruct" << std::endl;
+    std::cout << std::setw(39) << "Pizza destruct" << std::endl;
 }
 
 std::string Pizza::getName()
@@ -29,15 +30,15 @@ void Pizza::setName(const std::string _name_)
 
 CheesePizza::CheesePizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
 {
-    std::cout << "CheesePizza construct" << std::endl;
+    std::cout << std::setw(40) << "CheesePizza construct" << std::endl;
 }
 CheesePizza::~CheesePizza()
 {
-    std::cout << "CheesePizza destruct" << std::endl;
+    std::cout << std::setw(39) << "CheesePizza destruct" << std::endl;
 }
 void CheesePizza::prepare()
 {
-    std::cout << "Prepare CheesePizza" << std::endl;
+    std::cout << "\033[36mPrepare CheesePizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
     _cheese = _ingredientFactory->createCheese();
@@ -47,7 +48,7 @@ void CheesePizza::prepare()
 }
 void CheesePizza::bake()
 {
-    std::cout << "Bake CheesePizza" << std::endl;
+    std::cout << "\033[36mBake CheesePizza" << std::endl;
 }
 void CheesePizza::cut()
 {
@@ -55,20 +56,20 @@ void CheesePizza::cut()
 }
 void CheesePizza::box()
 {
-    std::cout << "Box CheesePizza" << std::endl;
+    std::cout << "Box CheesePizza\033[0m" << std::endl;
 }
 
 PepperoniPizza::PepperoniPizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
 {
-    std::cout << "PepperoniPizza construct" << std::endl;
+    std::cout << std::setw(40) << "PepperoniPizza construct" << std::endl;
 }
 PepperoniPizza::~PepperoniPizza()
 {
-    std::cout << "PepperoniPizza destruct" << std::endl;
+    std::cout << std::setw(39) << "PepperoniPizza destruct" << std::endl;
 }
 void PepperoniPizza::prepare()
 {
-    std::cout << "Prepare PepperoniPizza" << std::endl;
+    std::cout << "\033[36mPrepare PepperoniPizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
     _cheese = _ingredientFactory->createCheese();
@@ -78,7 +79,7 @@ void PepperoniPizza::prepare()
 }
 void PepperoniPizza::bake()
 {
-    std::cout << "Bake PepperoniPizza" << std::endl;
+    std::cout << "\033[36mBake PepperoniPizza" << std::endl;
 }
 void PepperoniPizza::cut()
 {
@@ -86,20 +87,20 @@ void PepperoniPizza::cut()
 }
 void PepperoniPizza::box()
 {
-    std::cout << "Box PepperoniPizza" << std::endl;
+    std::cout << "Box PepperoniPizza\033[0m" << std::endl;
 }
 
 ClamPizza::ClamPizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
 {
-    std::cout << "ClamPizza construct" << std::endl;
+    std::cout << std::setw(40) << "ClamPizza construct" << std::endl;
 }
 ClamPizza::~ClamPizza()
 {
-    std::cout << "ClamPizza destruct" << std::endl;
+    std::cout << std::setw(39) << "ClamPizza destruct" << std::endl;
 }
 void ClamPizza::prepare()
 {
-    std::cout << "Prepare ClamPizza" << std::endl;
+    std::cout << "\033[36mPrepare ClamPizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
     _cheese = _ingredientFactory->createCheese();
@@ -109,7 +110,7 @@ void ClamPizza::prepare()
 }
 void ClamPizza::bake()
 {
-    std::cout << "Bake ClamPizza" << std::endl;
+    std::cout << "\033[36mBake ClamPizza" << std::endl;
 }
 void ClamPizza::cut()
 {
@@ -117,20 +118,20 @@ void ClamPizza::cut()
 }
 void ClamPizza::box()
 {
-    std::cout << "Box ClamPizza" << std::endl;
+    std::cout << "Box ClamPizza\033[0m" << std::endl;
 }
 
 VeggiePizza::VeggiePizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
 {
-    std::cout << "VeggiePizza construct" << std::endl;
+    std::cout << std::setw(40) << "VeggiePizza construct" << std::endl;
 }
 VeggiePizza::~VeggiePizza()
 {
-    std::cout << "VeggiePizza destruct" << std::endl;
+    std::cout << std::setw(39) << "VeggiePizza destruct" << std::endl;
 }
 void VeggiePizza::prepare()
 {
-    std::cout << "Prepare VeggiePizza" << std::endl;
+    std::cout << "\033[36mPrepare VeggiePizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
     _cheese = _ingredientFactory->createCheese();
@@ -140,7 +141,7 @@ void VeggiePizza::prepare()
 }
 void VeggiePizza::bake()
 {
-    std::cout << "Bake VeggiePizza" << std::endl;
+    std::cout << "\033[36mBake VeggiePizza" << std::endl;
 }
 void VeggiePizza::cut()
 {
@@ -148,5 +149,5 @@ void VeggiePizza::cut()
 }
 void VeggiePizza::box()
 {
-    std::cout << "Box VeggiePizza" << std::endl;
+    std::cout << "Box VeggiePizza\033[0m" << std::endl;
 }

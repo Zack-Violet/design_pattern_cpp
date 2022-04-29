@@ -23,6 +23,50 @@ GumballMachine::GumballMachine(short _gumball_num_)
     }
 }
 
+void GumballMachine::startWork() const
+{
+    std::cout << "Welcome to use the GumballMachine!!!" << std::endl;
+    std::cout << "Now You have the following options : " << std::endl;
+    std::cout << "[A/a] -> insertQuarter\n\r[B/b] -> turnCrank\n\r[C/c] -> ejectQuarter" << std::endl;
+    std::cout << "Please enter your choice : ";
+    char choice;
+
+    do{
+        std::cin >> choice;
+        switch (choice)
+        {
+            case 'A':
+            case 'a':
+            {
+                this->insertQuarter();
+                break;
+            }
+            case 'B':
+            case 'b':
+            {
+                this->turnCrank();
+                break;
+            }
+            case 'C':
+            case 'c':
+            {
+                this->ejectQuarter();
+                break;
+            }
+            case 'q':
+            {
+                std::cout << "Byebye!" << std::endl;
+                return;
+            }
+            default:
+            {
+                std::cout << "Invalid input" << std::endl;
+                break;
+            }
+        }
+    }while(true);
+}
+
 void GumballMachine::insertQuarter() const
 {
     assert(_state);

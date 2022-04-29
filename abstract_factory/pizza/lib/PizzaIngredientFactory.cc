@@ -3,25 +3,26 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <iomanip>
 #include "include/PizzaIngredientFactory.h"
 
 
 Dough::Dough()
 {
-    std::cout << "Dough construct" << std::endl;
+    std::cout << std::setw(40) << "Dough construct" << std::endl;
 }
 Dough::~Dough()
 {
-    std::cout << "Dough destruct" << std::endl;
+    std::cout << std::setw(39)<< "Dough destruct" << std::endl;
 }
 
 ThinCrustDough::ThinCrustDough()
 {
-    std::cout << "ThinCrustDough construct" << std::endl;
+    std::cout << std::setw(40)<< "ThinCrustDough construct" << std::endl;
 }
 ThinCrustDough::~ThinCrustDough()
 {
-    std::cout << "ThinCrustDough destruct" << std::endl;
+    std::cout << std::setw(39)<< "ThinCrustDough destruct" << std::endl;
 }
 std::string ThinCrustDough::getDough()
 {
@@ -30,11 +31,11 @@ std::string ThinCrustDough::getDough()
 
 ThickCrustDough::ThickCrustDough()
 {
-    std::cout << "ThickCrustDough construct" << std::endl;
+    std::cout << std::setw(40)<< "ThickCrustDough construct" << std::endl;
 }
 ThickCrustDough::~ThickCrustDough()
 {
-    std::cout << "ThickCrustDough destruct" << std::endl;
+    std::cout << std::setw(39)<< "ThickCrustDough destruct" << std::endl;
 }
 std::string ThickCrustDough::getDough()
 {
@@ -43,20 +44,20 @@ std::string ThickCrustDough::getDough()
 
 Sauce::Sauce()
 {
-    std::cout << "Sauce construct" << std::endl;
+    std::cout << std::setw(40)<< "Sauce construct" << std::endl;
 }
 Sauce::~Sauce()
 {
-    std::cout << "Sauce destruct" << std::endl;
+    std::cout << std::setw(39)<< "Sauce destruct" << std::endl;
 }
 
 MarinaraSauce::MarinaraSauce()
 {
-    std::cout << "MarinaraSauce construct" << std::endl;
+    std::cout << std::setw(40)<< "MarinaraSauce construct" << std::endl;
 }
 MarinaraSauce::~MarinaraSauce()
 {
-    std::cout << "MarinaraSauce destruct" << std::endl;
+    std::cout << std::setw(39)<< "MarinaraSauce destruct" << std::endl;
 }
 std::string MarinaraSauce::getSauce()
 {
@@ -65,11 +66,11 @@ std::string MarinaraSauce::getSauce()
 
 PlumTomatoSauce::PlumTomatoSauce()
 {
-    std::cout << "PlumTomatoSauce construct" << std::endl;
+    std::cout << std::setw(40)<< "PlumTomatoSauce construct" << std::endl;
 }
 PlumTomatoSauce::~PlumTomatoSauce()
 {
-    std::cout << "PlumTomatoSauce destruct" << std::endl;
+    std::cout << std::setw(39)<< "PlumTomatoSauce destruct" << std::endl;
 }
 std::string PlumTomatoSauce::getSauce()
 {
@@ -78,20 +79,20 @@ std::string PlumTomatoSauce::getSauce()
 
 Cheese::Cheese()
 {
-    std::cout << "Cheese construct" << std::endl;
+    std::cout << std::setw(40)<< "Cheese construct" << std::endl;
 }
 Cheese::~Cheese()
 {
-    std::cout << "Cheese destruct" << std::endl;
+    std::cout << std::setw(39)<< "Cheese destruct" << std::endl;
 }
 
 ReggianoCheese::ReggianoCheese()
 {
-    std::cout << "ReggianoCheese construct" << std::endl;
+    std::cout << std::setw(40)<< "ReggianoCheese construct" << std::endl;
 }
 ReggianoCheese::~ReggianoCheese()
 {
-    std::cout << "ReggianoCheese destruct" << std::endl;
+    std::cout << std::setw(39)<< "ReggianoCheese destruct" << std::endl;
 }
 std::string ReggianoCheese::getCheese()
 {
@@ -100,11 +101,11 @@ std::string ReggianoCheese::getCheese()
 
 ParmesanCheese::ParmesanCheese()
 {
-    std::cout << "ParmesanCheese construct" << std::endl;
+    std::cout << std::setw(40)<< "ParmesanCheese construct" << std::endl;
 }
 ParmesanCheese::~ParmesanCheese()
 {
-    std::cout << "ParmesanCheese destruct" << std::endl;
+    std::cout << std::setw(39)<< "ParmesanCheese destruct" << std::endl;
 }
 std::string ParmesanCheese::getCheese()
 {
@@ -113,11 +114,11 @@ std::string ParmesanCheese::getCheese()
 
 MozzarellaCheese::MozzarellaCheese()
 {
-    std::cout << "MozzarellaCheese construct" << std::endl;
+    std::cout << std::setw(40)<< "MozzarellaCheese construct" << std::endl;
 }
 MozzarellaCheese::~MozzarellaCheese()
 {
-    std::cout << "MozzarellaCheese destruct" << std::endl;
+    std::cout << std::setw(39)<< "MozzarellaCheese destruct" << std::endl;
 }
 std::string MozzarellaCheese::getCheese()
 {
@@ -126,20 +127,20 @@ std::string MozzarellaCheese::getCheese()
 
 Clams::Clams()
 {
-    std::cout << "Clams construct" << std::endl;
+    std::cout << std::setw(40)<< "Clams construct" << std::endl;
 }
 Clams::~Clams()
 {
-    std::cout << "Clams destruct" << std::endl;
+    std::cout << std::setw(39)<< "Clams destruct" << std::endl;
 }
 
 FreshClams::FreshClams()
 {
-    std::cout << "FreshClams construct" << std::endl;
+    std::cout << std::setw(40)<< "FreshClams construct" << std::endl;
 }
 FreshClams::~FreshClams()
 {
-    std::cout << "FreshClams destruct" << std::endl;
+    std::cout << std::setw(39)<< "FreshClams destruct" << std::endl;
 }
 std::string FreshClams::getClams()
 {
@@ -148,11 +149,11 @@ std::string FreshClams::getClams()
 
 FrozenClams::FrozenClams()
 {
-    std::cout << "FrozenClams construct" << std::endl;
+    std::cout << std::setw(40)<< "FrozenClams construct" << std::endl;
 }
 FrozenClams::~FrozenClams()
 {
-    std::cout << "FrozenClams destruct" << std::endl;
+    std::cout << std::setw(39)<< "FrozenClams destruct" << std::endl;
 }
 std::string FrozenClams::getClams()
 {
@@ -161,20 +162,20 @@ std::string FrozenClams::getClams()
 
 Pepperoni::Pepperoni()
 {
-    std::cout << "Pepperoni construct" << std::endl;
+    std::cout << std::setw(40)<< "Pepperoni construct" << std::endl;
 }
 Pepperoni::~Pepperoni()
 {
-    std::cout << "Pepperoni destruct" << std::endl;
+    std::cout << std::setw(39)<< "Pepperoni destruct" << std::endl;
 }
 
 SlicePepperoni::SlicePepperoni()
 {
-    std::cout << "SlicePepperoni construct" << std::endl;
+    std::cout << std::setw(40)<< "SlicePepperoni construct" << std::endl;
 }
 SlicePepperoni::~SlicePepperoni()
 {
-    std::cout << "SlicePepperoni destruct" << std::endl;
+    std::cout << std::setw(39)<< "SlicePepperoni destruct" << std::endl;
 }
 std::string SlicePepperoni::getPepperoni()
 {
@@ -183,20 +184,20 @@ std::string SlicePepperoni::getPepperoni()
 
 Veggies::Veggies()
 {
-    std::cout << "Veggies construct" << std::endl;
+    std::cout << std::setw(40)<< "Veggies construct" << std::endl;
 }
 Veggies::~Veggies()
 {
-    std::cout << "Veggies construct" << std::endl;
+    std::cout << std::setw(39)<< "Veggies destruct" << std::endl;
 }
 
 Eggplant::Eggplant()
 {
-    std::cout << "Eggplant construct" << std::endl;
+    std::cout << std::setw(40)<< "Eggplant construct" << std::endl;
 }
 Eggplant::~Eggplant()
 {
-    std::cout << "Eggplant destruct" << std::endl;
+    std::cout << std::setw(39)<< "Eggplant destruct" << std::endl;
 }
 std::string Eggplant::getVeggies()
 {
@@ -205,11 +206,11 @@ std::string Eggplant::getVeggies()
 
 Mushroom::Mushroom()
 {
-    std::cout << "Mushroom construct" << std::endl;
+    std::cout << std::setw(40)<< "Mushroom construct" << std::endl;
 }
 Mushroom::~Mushroom()
 {
-    std::cout << "Mushroom destruct" << std::endl;
+    std::cout << std::setw(39)<< "Mushroom destruct" << std::endl;
 }
 std::string Mushroom::getVeggies()
 {
@@ -218,11 +219,11 @@ std::string Mushroom::getVeggies()
 
 Onion::Onion()
 {
-    std::cout << "Onion construct" << std::endl;
+    std::cout << std::setw(40)<< "Onion construct" << std::endl;
 }
 Onion::~Onion()
 {
-    std::cout << "Onion destruct" << std::endl;
+    std::cout << std::setw(39)<< "Onion destruct" << std::endl;
 }
 std::string Onion::getVeggies()
 {
@@ -231,11 +232,11 @@ std::string Onion::getVeggies()
 
 RedPepper::RedPepper()
 {
-    std::cout << "RedPepper construct" << std::endl;
+    std::cout << std::setw(40)<< "RedPepper construct" << std::endl;
 }
 RedPepper::~RedPepper()
 {
-    std::cout << "RedPepper destruct" << std::endl;
+    std::cout << std::setw(39)<< "RedPepper destruct" << std::endl;
 }
 std::string RedPepper::getVeggies()
 {
@@ -244,11 +245,11 @@ std::string RedPepper::getVeggies()
 
 BlackOlivers::BlackOlivers()
 {
-    std::cout << "BlackOlivers construct" << std::endl;
+    std::cout << std::setw(40)<< "BlackOlivers construct" << std::endl;
 }
 BlackOlivers::~BlackOlivers()
 {
-    std::cout << "BlackOlivers destruct" << std::endl;
+    std::cout << std::setw(39)<< "BlackOlivers destruct" << std::endl;
 }
 std::string BlackOlivers::getVeggies()
 {
@@ -257,11 +258,11 @@ std::string BlackOlivers::getVeggies()
 
 Garlic::Garlic()
 {
-    std::cout << "Garlic construct" << std::endl;
+    std::cout << std::setw(40)<< "Garlic construct" << std::endl;
 }
 Garlic::~Garlic()
 {
-    std::cout << "Garlic destruct" << std::endl;
+    std::cout << std::setw(39)<< "Garlic destruct" << std::endl;
 }
 std::string Garlic::getVeggies()
 {
@@ -270,11 +271,11 @@ std::string Garlic::getVeggies()
 
 Spinach::Spinach()
 {
-    std::cout << "Spinach construct" << std::endl;
+    std::cout << std::setw(40)<< "Spinach construct" << std::endl;
 }
 Spinach::~Spinach()
 {
-    std::cout << "Spinach destruct" << std::endl;
+    std::cout << std::setw(39)<< "Spinach destruct" << std::endl;
 }
 std::string Spinach::getVeggies()
 {
@@ -283,20 +284,20 @@ std::string Spinach::getVeggies()
 
 PizzaIngredientFactory::PizzaIngredientFactory()
 {
-    std::cout << "PizzaIngredientFactory construct" << std::endl;
+    std::cout << std::setw(40)<< "PizzaIngredientFactory construct" << std::endl;
 }
 PizzaIngredientFactory::~PizzaIngredientFactory()
 {
-    std::cout << "PizzaIngredientFactory destruct" << std::endl;
+    std::cout << std::setw(39)<< "PizzaIngredientFactory destruct" << std::endl;
 }
 
 NYPizzaIngredientFactory::NYPizzaIngredientFactory()
 {
-    std::cout << "NYPizzaIngredientFactory construct" << std::endl;
+    std::cout << std::setw(40)<< "NYPizzaIngredientFactory construct" << std::endl;
 }
 NYPizzaIngredientFactory::~NYPizzaIngredientFactory()
 {
-    std::cout << "NYPizzaIngredientFactory destruct" << std::endl;
+    std::cout << std::setw(39)<< "NYPizzaIngredientFactory destruct" << std::endl;
 }
 std::unique_ptr<Dough> NYPizzaIngredientFactory::createDough()
 {
@@ -325,11 +326,11 @@ std::unique_ptr<Pepperoni> NYPizzaIngredientFactory::createPepperoni()
 
 ChicagoPizzaIngredientFactory::ChicagoPizzaIngredientFactory()
 {
-    std::cout << "ChicagoPizzaIngredientFactory construct" << std::endl;
+    std::cout << std::setw(40)<< "ChicagoPizzaIngredientFactory construct" << std::endl;
 }
 ChicagoPizzaIngredientFactory::~ChicagoPizzaIngredientFactory()
 {
-    std::cout << "ChicagoPizzaIngredientFactory destruct" << std::endl;
+    std::cout << std::setw(39)<< "ChicagoPizzaIngredientFactory destruct" << std::endl;
 }
 std::unique_ptr<Dough> ChicagoPizzaIngredientFactory::createDough()
 {
