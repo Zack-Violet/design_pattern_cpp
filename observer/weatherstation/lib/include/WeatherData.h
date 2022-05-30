@@ -5,15 +5,12 @@
 #include <list>
 #include "DisplayElement.h"
 
-class Subject
-{
+class Subject {
     public:
-        Subject()
-        {
+        Subject() {
             std::cout << "Subject construct" << std::endl;
         }
-        virtual ~Subject()
-        {
+        virtual ~Subject() {
             std::cout << "Subject destruct" << std::endl;
         }
         virtual void registerObserver(Observer*) = 0;
@@ -21,15 +18,12 @@ class Subject
         virtual void notifyObservers() = 0;
 };
 
-class WeatherData : public Subject
-{
+class WeatherData : public Subject {
     public:
-        WeatherData()
-        {
+        WeatherData() {
             std::cout << "WeatherData construct" << std::endl;
         }
-        ~WeatherData()
-        {
+        ~WeatherData() {
             std::cout << "WeatherData destruct" << std::endl;
         }
         void registerObserver(Observer*);

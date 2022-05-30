@@ -5,15 +5,12 @@
 #include <string>
 #include <memory>
 
-class Beverage
-{
+class Beverage {
     public:
-        Beverage() : _description("Unknown Beverage")
-        {
+        Beverage() : _description("Unknown Beverage") {
             std::cout << "Beverage construct" << std::endl;
         }
-        virtual ~Beverage()
-        {
+        virtual ~Beverage() {
             std::cout << "Beverage destruct" << std::endl;
         }
 
@@ -24,96 +21,78 @@ class Beverage
         std::string _description;
 };
 
-class HouseBlend : public Beverage
-{
+class HouseBlend : public Beverage {
     public:
-        HouseBlend()
-        {
+        HouseBlend() {
             std::cout << "HouseBlend construct" << std::endl;
             _description = "HouseBlend";
         }
-        ~HouseBlend()
-        {
+        ~HouseBlend() {
             std::cout << "HouseBlend destruct" << std::endl;
         }
 
         double cost();
 };
 
-class Espresso : public Beverage
-{
+class Espresso : public Beverage {
     public:
-        Espresso()
-        {
+        Espresso() {
             std::cout << "Espresso construct" << std::endl;
             _description = "Espresso";
         }
-        ~Espresso()
-        {
+        ~Espresso() {
             std::cout << "Espresso destruct" << std::endl;
         }
 
         double cost();
 };
 
-class Decaf : public Beverage
-{
+class Decaf : public Beverage {
     public:
-        Decaf()
-        {
+        Decaf() {
             std::cout << "Decaf construct" << std::endl;
             _description = "Decaf";
         }
-        ~Decaf()
-        {
+        ~Decaf() {
             std::cout << "Decaf destruct" << std::endl;
         }
 
         double cost();
 };
 
-class DarkRoast : public Beverage
-{
+class DarkRoast : public Beverage {
     public:
-        DarkRoast()
-        {
+        DarkRoast() {
             std::cout << "DarkRoast construct" << std::endl;
             _description = "DarkRoast";
         }
-        ~DarkRoast()
-        {
+        ~DarkRoast() {
             std::cout << "DarkRoast destruct" << std::endl;
         }
 
         double cost();
 };
 
-class CondimentDecorator : public Beverage
-{
+class CondimentDecorator : public Beverage {
     public:
-        CondimentDecorator()
-        {
+        CondimentDecorator() {
             std::cout << "CondimentDecorator construct" << std::endl;
         }
         CondimentDecorator(CondimentDecorator*);
-        virtual ~CondimentDecorator()
-        {
+        virtual ~CondimentDecorator() {
             std::cout << "CondimentDecorator destruct" << std::endl;
         }
 
         virtual std::string getDescription() = 0;
 };
 
-class Soy : public CondimentDecorator
-{
+class Soy : public CondimentDecorator {
     public:
-        Soy()
-        {
+        Soy() {
             std::cout << "Soy construct" << std::endl;
         }
         Soy(std::unique_ptr<Beverage>);
-        ~Soy()
-        {
+        ~Soy() {
             std::cout << "Soy destruct" << std::endl;
         }
 
@@ -124,16 +103,13 @@ class Soy : public CondimentDecorator
         std::unique_ptr<Beverage> _beverage;
 };
 
-class Milk : public CondimentDecorator
-{
+class Milk : public CondimentDecorator {
     public:
-        Milk()
-        {
+        Milk() {
             std::cout << "Milk construct" << std::endl;
         }
         Milk(std::unique_ptr<Beverage>);
-        ~Milk()
-        {
+        ~Milk() {
             std::cout << "Milk destruct" << std::endl;
         }
 
@@ -144,16 +120,13 @@ class Milk : public CondimentDecorator
         std::unique_ptr<Beverage> _beverage;
 };
 
-class Mocha : public CondimentDecorator
-{
+class Mocha : public CondimentDecorator {
     public:
-        Mocha()
-        {
+        Mocha() {
             std::cout << "Mocha construct" << std::endl;
         }
         Mocha(std::unique_ptr<Beverage>);
-        ~Mocha()
-        {
+        ~Mocha() {
             std::cout << "Mocha destruct" << std::endl;
         }
 
@@ -164,16 +137,13 @@ class Mocha : public CondimentDecorator
         std::unique_ptr<Beverage> _beverage;
 };
 
-class Whip : public CondimentDecorator
-{
+class Whip : public CondimentDecorator {
     public:
-        Whip()
-        {
+        Whip() {
             std::cout << "Whip construct" << std::endl;
         }
         Whip(std::unique_ptr<Beverage>);
-        ~Whip()
-        {
+        ~Whip() {
             std::cout << "Whip destruct" << std::endl;
         }
 

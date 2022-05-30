@@ -1,46 +1,37 @@
 #include <iostream>
 
-class Strategy
-{
+class Strategy {
     public:
         virtual ~Strategy() {}
         virtual void algorithm() = 0;
 };
 
-class ConcreteStrategyA : public Strategy
-{
+class ConcreteStrategyA : public Strategy {
     public:
         ~ConcreteStrategyA() {}
-        void algorithm()
-        {
+        void algorithm() {
             std::cout << "ConcreteStrategyA algorithm()" << std::endl;
         }
 };
 
-class ConcreteStrategyB :public Strategy
-{
+class ConcreteStrategyB :public Strategy {
     public:
         ~ConcreteStrategyB() {}
-        void algorithm()
-        {
+        void algorithm() {
             std::cout << "ConcreteStrategyB algorithm()" << std::endl;
         }
 };
 
-class Context
-{
+class Context {
     public:
         Context() : stra() {}
-        ~Context()
-        {
+        ~Context() {
             delete stra;
         }
-        void algorithm()
-        {
+        void algorithm() {
             stra->algorithm();
         }
-        void setStrategy(Strategy* const s)
-        {
+        void setStrategy(Strategy* const s) {
             if (stra)
                 delete stra;
 
@@ -52,8 +43,7 @@ class Context
 };
 
 
-int main()
-{
+int main() {
     Context* context = new Context();
     context->setStrategy(new ConcreteStrategyA());
     context->algorithm();

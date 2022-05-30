@@ -1,41 +1,32 @@
 #include <iostream>
 
-class Televation
-{
+class Televation {
     public:
-        Televation()
-        {
+        Televation() {
             std::cout << "Televation now is off" << std::endl;
         }
         ~Televation() {}
-        void turnOff()
-        {
+        void turnOff() {
             std::cout << "Televation off" << std::endl;
         }
-        void turnOn()
-        {
+        void turnOn() {
             std::cout << "Televation on" << std::endl;
         }
-        void volumeUp()
-        {
+        void volumeUp() {
             std::cout << "Televation volumeUp" << std::endl;
         }
-        void volumeDown()
-        {
+        void volumeDown() {
             std::cout << "Televation volumeDown" << std::endl;
         }
-        void nextChannel()
-        {
+        void nextChannel() {
             std::cout << "Televation nextChannel" << std::endl;
         }
-        void preChannel()
-        {
+        void preChannel() {
             std::cout << "Televation preChannel" << std::endl;
         }
 };
 
-class Command
-{
+class Command {
     public:
         virtual ~Command() {}
         virtual void excute(bool) = 0;
@@ -48,17 +39,14 @@ class Command
     //    Televation* tele;
 };
 
-class ConcreteCommandPower : public Command
-{
+class ConcreteCommandPower : public Command {
     public:
         ConcreteCommandPower(Televation* t) : tele(t) {}
-        ~ConcreteCommandPower()
-        {
+        ~ConcreteCommandPower() {
             if (tele)
                 delete tele;
         }
-        void excute(bool s)
-        {
+        void excute(bool s) {
             if (s)
                 tele->turnOn();
             else
@@ -69,17 +57,14 @@ class ConcreteCommandPower : public Command
         Televation* tele;
 };
 
-class ConcreteCommandVolume : public Command
-{
+class ConcreteCommandVolume : public Command {
     public:
         ConcreteCommandVolume(Televation* t) : tele(t) {}
-        ~ConcreteCommandVolume()
-        {
+        ~ConcreteCommandVolume() {
             if (tele)
                 delete tele;
         }
-        void excute(bool s)
-        {
+        void excute(bool s) {
             if (s)
                 tele->volumeUp();
             else
@@ -90,17 +75,14 @@ class ConcreteCommandVolume : public Command
         Televation* tele;
 };
 
-class ConcreteCommandChannel : public Command
-{
+class ConcreteCommandChannel : public Command {
     public:
         ConcreteCommandChannel(Televation* t) : tele(t) {}
-        ~ConcreteCommandChannel()
-        {
+        ~ConcreteCommandChannel() {
             if (tele)
                 delete tele;
         }
-        void excute(bool s)
-        {
+        void excute(bool s) {
             if (s)
                 tele->nextChannel();
             else
@@ -111,24 +93,20 @@ class ConcreteCommandChannel : public Command
         Televation* tele;
 };
 
-class Controller
-{
+class Controller {
     public:
         Controller() {}
         Controller(Command* c) : cmd(c) {}
-        ~Controller()
-        {
+        ~Controller() {
             if (cmd)
                 delete cmd;
         }
-        void setCtrl(Command* c)
-        {
+        void setCtrl(Command* c) {
             if (cmd)
                 delete cmd;
             cmd = c;
         }
-        void excute(bool s)
-        {
+        void excute(bool s) {
             cmd->excute(s);
         }
 
@@ -136,8 +114,7 @@ class Controller
         Command* cmd;
 };
 
-int main()
-{
+int main() {
     Televation* tel = new Televation();
     Controller* ctrl = new Controller(new ConcreteCommandPower(tel));
 

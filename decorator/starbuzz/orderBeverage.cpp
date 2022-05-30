@@ -3,8 +3,7 @@
 #include <memory>
 #include "lib/Beverage.h"
 
-int main()
-{
+int main() {
     std::unique_ptr<Beverage> beverage (new Espresso());
     std::cout.setf(std::ios::showpoint);
     std::cout.precision(3);

@@ -6,8 +6,7 @@
 static const int GUMALL_NUM = 15;
 static const int BUY_TIME = 10;
 
-int main()
-{
+int main() {
     std::unique_ptr<GumballMachine> gumballmachine_(new GumballMachine(GUMALL_NUM));
 
     //for (int i = 0; i < BUY_TIME; ++i)

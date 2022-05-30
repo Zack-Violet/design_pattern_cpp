@@ -1,37 +1,30 @@
 #include <iostream>
 
-class Subject
-{
+class Subject {
     public:
         virtual ~Subject() {}
         virtual void request() = 0;
 };
 
-class RealSubject : public Subject
-{
+class RealSubject : public Subject {
     public:
         RealSubject() {}
         ~RealSubject() {}
-        void request()
-        {
+        void request() {
             std::cout << "RealSubject request()" << std::endl;
         }
 };
 
-class Proxy : public Subject
-{
+class Proxy : public Subject {
     public:
-        Proxy()
-        {
+        Proxy() {
             rsj = new RealSubject();
         }
-        ~Proxy()
-        {
+        ~Proxy() {
             if (rsj)
                 delete rsj;
         }
-        void request()
-        {
+        void request() {
             preRequest();
             std::cout << "Proxy request() -> RealSubject request()" << std::endl;
             rsj->request();
@@ -40,18 +33,15 @@ class Proxy : public Subject
 
     private:
        RealSubject* rsj;
-       void afterRequest()
-       {
+       void afterRequest() {
            std::cout << "Proxy afterRequest()" << std::endl;
        }
-       void preRequest()
-       {
+       void preRequest() {
            std::cout << "Proxy preRequest()" << std::endl;
        }
 };
 
-int main()
-{
+int main() {
     Proxy* pxy = new Proxy();
     pxy->request();
 

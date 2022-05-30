@@ -1,33 +1,27 @@
 #include <iostream>
 #include <memory>
 
-class Implementor
-{
+class Implementor {
     public:
         virtual ~Implementor() {}
         virtual void operationImp() = 0;
 };
 
-class ImplementorConcreteA : public Implementor
-{
+class ImplementorConcreteA : public Implementor {
     public:
-        virtual void operationImp()
-        {
+        virtual void operationImp() {
             std::cout << "ImplementorConcreteA operationImp() do something" << std::endl;
         }
 };
 
-class ImplementorConcreteB : public Implementor
-{
+class ImplementorConcreteB : public Implementor {
     public:
-        virtual void operationImp()
-        {
+        virtual void operationImp() {
             std::cout << "ImplementorConcreteB operationImp() do something" << std::endl;
         }
 };
 
-class Abstruction
-{
+class Abstruction {
     public:
         Abstruction(Implementor* pimp) : imp(pimp) {}
         virtual ~Abstruction() {}
@@ -37,13 +31,11 @@ class Abstruction
         Implementor* imp;
 };
 
-class RefinedAbstruction : public Abstruction
-{
+class RefinedAbstruction : public Abstruction {
     public:
         RefinedAbstruction(Implementor* tmp) : Abstruction(tmp) {}
         ~RefinedAbstruction() {}
-        virtual void operation()
-        {
+        virtual void operation() {
             imp->operationImp();
         }
 
@@ -52,8 +44,7 @@ class RefinedAbstruction : public Abstruction
 };
 
 
-int main()
-{
+int main() {
     Abstruction* abspa = new RefinedAbstruction(new ImplementorConcreteA());
 
     abspa->operation();

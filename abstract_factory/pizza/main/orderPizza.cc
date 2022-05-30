@@ -4,8 +4,7 @@
 #include "../lib/include/PizzaIngredientFactory.h"
 #include "../lib/include/PizzaStore.h"
 
-int main()
-{
+int main() {
     std::unique_ptr<PizzaStore> _NY_pizzastore(new NYPizzaStore());
     std::unique_ptr<PizzaStore> _Chicago_pizzastore(new ChicagoPizzaStore());
 

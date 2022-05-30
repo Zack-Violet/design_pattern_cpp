@@ -1,34 +1,28 @@
 #include <iostream>
 #include <memory>
 
-class Target
-{
+class Target {
     public:
         virtual ~Target() {}
         virtual void request() = 0;
 };
 
-class Adaptee
-{
+class Adaptee {
     public:
         virtual ~Adaptee() {}
-        void specificRequest()
-        {
+        void specificRequest() {
             std::cout << "do something" << std::endl;
         }
 };
 
-class Adapter : public Target, public Adaptee
-{
+class Adapter : public Target, public Adaptee {
     public:
-        virtual void request()
-        {
+        virtual void request() {
             specificRequest();
         }
 };
 
-int main()
-{
+int main() {
     std::unique_ptr<Target> ptr(new Adapter());
     ptr->request();
 

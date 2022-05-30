@@ -4,8 +4,7 @@
 #include "../lib/include/Waitress.h"
 #include "../lib/include/Menus.h"
 
-int main()
-{
+int main() {
     std::unique_ptr<MenuComponent> _pancake_house_menu(new Menu("PANCAKE HOUSE MENU", "Breakfast"));
     std::unique_ptr<MenuComponent> _diner_menu(new Menu("DINER MENU", "Lunch"));
     std::unique_ptr<MenuComponent> _dessert_menu(new Menu("DESSERT MENU", "Dessert of course!"));

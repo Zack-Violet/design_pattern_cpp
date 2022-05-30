@@ -2,37 +2,29 @@
 #include <string>
 #include <memory>
 
-class Product
-{
+class Product {
     public:
         Product() {}
         ~Product() {}
-        void makePartA()
-        {
+        void makePartA() {
             this->A = "A";
         }
-        void makePartA(const std::string& sa)
-        {
+        void makePartA(const std::string& sa) {
             this->A = sa;
         }
-        void makePartB()
-        {
+        void makePartB() {
             this->B = "B";
         }
-        void makePartB(const std::string& sb)
-        {
+        void makePartB(const std::string& sb) {
             this->B = sb;
         }
-        void makePartC()
-        {
+        void makePartC() {
             this->C = "C";
         }
-        void makePartC(const std::string& sc)
-        {
+        void makePartC(const std::string& sc) {
             this->C = sc;
         }
-        std::string get()
-        {
+        std::string get() {
             return this->A + "->" + this->B + "->" + this->C;
         }
 
@@ -42,15 +34,13 @@ class Product
         std::string C;
 };
 
-class Builder
-{
+class Builder {
     public:
         virtual ~Builder() {}
         virtual void buildA() = 0;
         virtual void buildB() = 0;
         virtual void buildC() = 0;
-        virtual Product getResult()
-        {
+        virtual Product getResult() {
             return pro;
         }
 
@@ -58,66 +48,53 @@ class Builder
         Product pro;
 };
 
-class ConcreteBuilderX : public Builder
-{
+class ConcreteBuilderX : public Builder {
     public:
         ~ConcreteBuilderX() {}
-        void buildA()
-        {
+        void buildA() {
             pro.makePartA("A-X");
         }
-        void buildB()
-        {
+        void buildB() {
             pro.makePartB("B-X");
         }
-        void buildC()
-        {
+        void buildC() {
             pro.makePartC("C-X");
         }
 };
 
-class ConcreteBuilderY : public Builder
-{
+class ConcreteBuilderY : public Builder {
     public:
         ~ConcreteBuilderY() {}
-        void buildA()
-        {
+        void buildA() {
             pro.makePartA("A-Y");
         }
-        void buildB()
-        {
+        void buildB() {
             pro.makePartB("B-Y");
         }
-        void buildC()
-        {
+        void buildC() {
             pro.makePartC("C-Y");
         }
 };
 
-class Director
-{
+class Director {
     public:
         Director() : builder(nullptr) {}
-        ~Director()
-        {
+        ~Director() {
             if (this->builder)
                 delete builder;
         }
-        void setBuilder(Builder* b)
-        {
+        void setBuilder(Builder* b) {
             if (this->builder)
                 delete this->builder;
 
             this->builder = b;
         }
-        void construct()
-        {
+        void construct() {
             builder->buildA();
             builder->buildB();
             builder->buildC();
         }
-        Product getProduct()
-        {
+        Product getProduct() {
             return builder->getResult();
         }
 
@@ -125,8 +102,7 @@ class Director
         Builder* builder;
 };
 
-int main()
-{
+int main() {
     std::unique_ptr<Director> dir(new Director());
     dir->setBuilder(new ConcreteBuilderX());
     dir->construct();

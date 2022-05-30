@@ -6,128 +6,112 @@
 #include <memory>
 #include <vector>
 
-class Dough
-{
+class Dough {
     public:
         Dough();
         virtual ~Dough();
         virtual std::string getDough() = 0;
 };
 
-class ThinCrustDough : public Dough
-{
+class ThinCrustDough : public Dough {
     public:
         ThinCrustDough();
         ~ThinCrustDough();
         std::string getDough();
 };
 
-class ThickCrustDough : public Dough
-{
+class ThickCrustDough : public Dough {
     public:
         ThickCrustDough();
         ~ThickCrustDough();
         std::string getDough();
 };
 
-class Sauce
-{
+class Sauce {
     public:
         Sauce();
         virtual ~Sauce();
         virtual std::string getSauce() = 0;
 };
 
-class MarinaraSauce : public Sauce
-{
+class MarinaraSauce : public Sauce {
     public:
         MarinaraSauce();
         ~MarinaraSauce();
         std::string getSauce();
 };
 
-class PlumTomatoSauce : public Sauce
-{
+class PlumTomatoSauce : public Sauce {
     public:
         PlumTomatoSauce();
         ~PlumTomatoSauce();
         std::string getSauce();
 };
 
-class Cheese
-{
+class Cheese {
     public:
         Cheese();
         virtual ~Cheese();
         virtual std::string getCheese() = 0;
 };
 
-class ReggianoCheese : public Cheese
-{
+class ReggianoCheese : public Cheese {
     public:
         ReggianoCheese();
         ~ReggianoCheese();
         std::string getCheese();
 };
 
-class ParmesanCheese : public Cheese
-{
+class ParmesanCheese : public Cheese {
     public:
         ParmesanCheese();
         ~ParmesanCheese();
         std::string getCheese();
 };
 
-class MozzarellaCheese : public Cheese
-{
+class MozzarellaCheese : public Cheese {
     public:
         MozzarellaCheese();
         ~MozzarellaCheese();
         std::string getCheese();
 };
 
-class Clams
-{
+class Clams {
     public:
         Clams();
         virtual ~Clams();
         virtual std::string getClams() = 0;
 };
 
-class FreshClams : public Clams
-{
+class FreshClams : public Clams {
     public:
         FreshClams();
         ~FreshClams();
         std::string getClams();
 };
 
-class FrozenClams : public Clams
-{
+class FrozenClams : public Clams {
     public:
         FrozenClams();
         ~FrozenClams();
         std::string getClams();
 };
 
-class Pepperoni
-{
+class Pepperoni {
     public:
         Pepperoni();
         virtual ~Pepperoni();
         virtual std::string getPepperoni() = 0;
 };
 
-class SlicePepperoni : public Pepperoni
-{
+class SlicePepperoni : public Pepperoni {
     public:
         SlicePepperoni();
         ~SlicePepperoni();
         std::string getPepperoni();
 };
 
-class Veggies
-{
+class Veggies {
     public:
         Veggies();
         virtual ~Veggies();
@@ -137,64 +121,56 @@ class Veggies
         std::vector<std::string> _veggies;
 };
 
-class Eggplant : public Veggies
-{
+class Eggplant : public Veggies {
     public:
         Eggplant();
         ~Eggplant();
         std::string getVeggies();
 };
 
-class Mushroom : public Veggies
-{
+class Mushroom : public Veggies {
     public:
         Mushroom();
         ~Mushroom();
         std::string getVeggies();
 };
 
-class Onion : public Veggies
-{
+class Onion : public Veggies {
     public:
         Onion();
         ~Onion();
         std::string getVeggies();
 };
 
-class RedPepper : public Veggies
-{
+class RedPepper : public Veggies {
     public:
         RedPepper();
         ~RedPepper();
         std::string getVeggies();
 };
 
-class BlackOlivers : public Veggies
-{
+class BlackOlivers : public Veggies {
     public:
         BlackOlivers();
         ~BlackOlivers();
         std::string getVeggies();
 };
 
-class Garlic : public Veggies
-{
+class Garlic : public Veggies {
     public:
         Garlic();
         ~Garlic();
         std::string getVeggies();
 };
 
-class Spinach : public Veggies
-{
+class Spinach : public Veggies {
     public:
         Spinach();
         ~Spinach();
         std::string getVeggies();
 };
 
-class PizzaIngredientFactory
-{
+class PizzaIngredientFactory {
     public:
         PizzaIngredientFactory();
         virtual ~PizzaIngredientFactory();
@@ -206,8 +182,7 @@ class PizzaIngredientFactory
         virtual std::unique_ptr<Clams> createClam() = 0;
 };
 
-class NYPizzaIngredientFactory : public PizzaIngredientFactory
-{
+class NYPizzaIngredientFactory : public PizzaIngredientFactory {
     public:
         NYPizzaIngredientFactory();
         ~NYPizzaIngredientFactory();
@@ -219,8 +194,7 @@ class NYPizzaIngredientFactory : public PizzaIngredientFactory
         std::unique_ptr<Pepperoni> createPepperoni();
 };
 
-class ChicagoPizzaIngredientFactory : public PizzaIngredientFactory
-{
+class ChicagoPizzaIngredientFactory : public PizzaIngredientFactory {
     public:
         ChicagoPizzaIngredientFactory();
         ~ChicagoPizzaIngredientFactory();

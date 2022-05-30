@@ -1,59 +1,48 @@
 #include <iostream>
 #include <string>
 
-class Prototype
-{
+class Prototype {
     public:
         virtual ~Prototype() {}
         virtual Prototype* clone() = 0;
         virtual std::string getType() = 0;
 };
 
-class ConcretePrototypeA : public Prototype
-{
+class ConcretePrototypeA : public Prototype {
     public:
         ~ConcretePrototypeA() {}
-        Prototype* clone()
-        {
+        Prototype* clone() {
             return new ConcretePrototypeA();
         }
-        std::string getType()
-        {
+        std::string getType() {
             return "A";
         }
 };
 
-class ConcretePrototypeB : public Prototype
-{
+class ConcretePrototypeB : public Prototype {
     public:
         ~ConcretePrototypeB() {}
-        Prototype* clone()
-        {
+        Prototype* clone() {
             return new ConcretePrototypeB();
         }
-        std::string getType()
-        {
+        std::string getType() {
             return "B";
         }
 };
 
-class Client
-{
+class Client {
     public:
         Client() {}
         ~Client() {}
-        static void init()
-        {
+        static void init() {
             types[0] = new ConcretePrototypeA;
             types[1] = new ConcretePrototypeB;
         }
-        static void remove()
-        {
+        static void remove() {
             delete types[0];
             delete types[1];
         }
-        static Prototype* getClone(int index)
-        {
+        static Prototype* getClone(int index) {
             if (index >= n_types)
                 return nullptr;
             return types[index]->clone();
@@ -67,8 +56,7 @@ class Client
 Prototype* Client::types[2];
 int Client::n_types = 2;
 
-int main()
-{
+int main() {
     Client::init();
 
     Prototype* ptya = Client::getClone(0);

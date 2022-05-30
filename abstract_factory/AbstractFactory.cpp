@@ -3,8 +3,7 @@
 #include <memory>
 
 // A公司
-class ProductA
-{
+class ProductA {
     public:
         virtual ~ProductA() {}
         virtual void use() = 0;
@@ -12,38 +11,31 @@ class ProductA
 };
 
 // A公司的产品X
-class ConcreteProductAX : public ProductA
-{
+class ConcreteProductAX : public ProductA {
     public:
         ~ConcreteProductAX() {}
-        void use()
-        {
+        void use() {
             std::cout << "ConcreteProductAX use()" << std::endl;
         }
-        std::string getName()
-        {
+        std::string getName() {
             return "ConcreteProductAX";
         }
 };
 
 // A公司的产品Y
-class ConcreteProductAY : public ProductA
-{
+class ConcreteProductAY : public ProductA {
     public:
         ~ConcreteProductAY() {}
-        void use()
-        {
+        void use() {
             std::cout << "ConcreteProductAY use()" << std::endl;
         }
-        std::string getName()
-        {
+        std::string getName() {
             return "ConcreteProductAY";
         }
 };
 
 // B公司
-class ProductB
-{
+class ProductB {
     public:
         virtual ~ProductB() {}
         virtual void use() = 0;
@@ -51,79 +43,65 @@ class ProductB
 };
 
 // B公司的产品X
-class ConcreteProductBX : public ProductB
-{
+class ConcreteProductBX : public ProductB {
     public:
         ~ConcreteProductBX() {}
-        void use()
-        {
+        void use() {
             std::cout << "ConcreteProductBX use()" << std::endl;
         }
-        std::string getName()
-        {
+        std::string getName() {
             return "ConcreteProductBX";
         }
 };
 
 // B公司的产品Y
-class ConcreteProductBY : public ProductB
-{
+class ConcreteProductBY : public ProductB {
     public:
         ~ConcreteProductBY() {}
-        void use()
-        {
+        void use() {
             std::cout << "ConcreteProductBY use()" << std::endl;
         }
-        std::string getName()
-        {
+        std::string getName() {
             return "ConcreteProductBY";
         }
 };
 
 // 工厂
-class Factory
-{
+class Factory {
     public:
         virtual ~Factory() {}
         virtual ProductA* CreateProductA() = 0;
         virtual ProductB* CreateProductB() = 0;
 };
 // 生产X产品的工厂
-class ConcreteFactoryX : public Factory
-{
+class ConcreteFactoryX : public Factory {
     public:
         ~ConcreteFactoryX() {}
-        ProductA* CreateProductA()
-        {
+        ProductA* CreateProductA() {
             std::cout << "create ConcreteProductAX" << std::endl;
             return new ConcreteProductAX();
         }
-        ProductB* CreateProductB()
-        {
+        ProductB* CreateProductB() {
             std::cout << "create ConcreteProductBX" << std::endl;
             return new ConcreteProductBX();
         }
 };
 
 // 生产Y产品的工厂
-class ConcreteFactoryY : public Factory
-{
+class ConcreteFactoryY : public Factory {
     public:
         ~ConcreteFactoryY() {}
-        ProductA* CreateProductA()
-        {
+        ProductA* CreateProductA() {
             std::cout << "create ConcreteProductAY" << std::endl;
             return new ConcreteProductAY();
         }
-        ProductB* CreateProductB()
-        {
+        ProductB* CreateProductB() {
             std::cout << "create ConcreteProductBY" << std::endl;
             return new ConcreteProductBY();
         }
 };
 
-int main()
-{
+int main() {
     std::unique_ptr<Factory> facX(new ConcreteFactoryX());
     std::unique_ptr<Factory> facY(new ConcreteFactoryY());
 

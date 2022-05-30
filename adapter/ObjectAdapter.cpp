@@ -1,33 +1,27 @@
 #include <iostream>
 #include <memory>
 
-class Target
-{
+class Target {
     public:
         virtual ~Target() {}
         virtual void request() = 0;
 };
 
-class Adaptee
-{
+class Adaptee {
     public:
-        void specificRequest()
-        {
+        void specificRequest() {
             std::cout << "do something specificRequest()" << std::endl;
         }
 };
 
-class Adapter : public Target
-{
+class Adapter : public Target {
     public:
         Adapter() : apt() {}
-        ~Adapter()
-        {
+        ~Adapter() {
             if (apt)
                 delete apt;
         }
-        virtual void request()
-        {
+        virtual void request() {
             apt->specificRequest();
         }
 
@@ -35,8 +29,7 @@ class Adapter : public Target
         Adaptee* apt;
 };
 
-int main()
-{
+int main() {
     std::unique_ptr<Target> ptr(new Adapter());
     ptr->request();
 

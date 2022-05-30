@@ -5,8 +5,7 @@
 #include <memory>
 #include "ElectricalAppliances.h"
 
-class HomeTheaterFacade
-{
+class HomeTheaterFacade {
     public:
         HomeTheaterFacade();
         ~HomeTheaterFacade() {}

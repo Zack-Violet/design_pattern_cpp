@@ -7,8 +7,7 @@
 #include <memory>
 #include "State.h"
 
-class GumballMachine
-{
+class GumballMachine {
     public:
         GumballMachine(short _gumball_num_);
         ~GumballMachine() {}

@@ -1,20 +1,17 @@
 #include <iostream>
 #include <string>
 
-class singleton
-{
+class singleton {
     public:
         singleton(const singleton&) = delete;
         singleton& operator=(const singleton&) = delete;
         ~singleton() {}
-        static singleton* getInstance()
-        {
+        static singleton* getInstance() {
             if (instance == nullptr)
                 instance = new singleton();
             return instance;
         }
-        void instanceOperation(const std::string& str)
-        {
+        void instanceOperation(const std::string& str) {
             std::cout << "some operation : " << str << std::endl;
         }
 
@@ -27,8 +24,7 @@ class singleton
 
 singleton* singleton::instance = nullptr;
 
-int main()
-{
+int main() {
     singleton* sg = singleton::getInstance();
     sg->instanceOperation("do something");
 

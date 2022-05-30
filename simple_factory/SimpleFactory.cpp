@@ -2,11 +2,9 @@
 #include <memory>
 
 // 抽象产品
-class product
-{
+class product {
     public:
-        product()
-        {
+        product() {
             std::cout << "product construct" << std::endl;
         }
         virtual ~product() {}
@@ -15,60 +13,47 @@ class product
 };
 
 // 具体产品A
-class ConcreteProductA : public product
-{
+class ConcreteProductA : public product {
     public:
-        ConcreteProductA() : product()
-        {
+        ConcreteProductA() : product() {
             std::cout << "ConcreteProductA construct" << std::endl;
         }
         virtual ~ConcreteProductA() {}
 
-        void use()
-        {
+        void use() {
             std::cout << "ConcreteProductA use()" << std::endl;
         }
 
-        void useA()
-        {
+        void useA() {
             std::cout << "ConcreteProductA useA()" << std::endl;
         }
 };
 
 // 具体产品B
-class ConcreteProductB : public product
-{
+class ConcreteProductB : public product {
     public:
-        ConcreteProductB() : product()
-        {
+        ConcreteProductB() : product() {
             std::cout << "ConcreteProductB construct" << std::endl;
         }
         virtual ~ConcreteProductB() {}
 
-        virtual void use()
-        {
+        virtual void use() {
             std::cout << "ConcreteProductB use()" << std::endl;
         }
 
-        void useB()
-        {
+        void useB() {
             std::cout << "ConcreteProductB useB()" << std::endl;
         }
 };
 
 // 根据选项选择生产对应的产品
-class factory
-{
+class factory {
     public:
-        product* creatProduct(std::string proName)
-        {
-            if (proName == "A")
-            {
+        product* creatProduct(std::string proName) {
+            if (proName == "A") {
                 std::cout << "create ConcreteProductA" << std::endl;
                 return new ConcreteProductA();
-            }
-            else if (proName == "B")
-            {
+            } else if (proName == "B") {
                 std::cout << "create ConcreteProductB" << std::endl;
                 return new ConcreteProductB();
             }
@@ -77,8 +62,7 @@ class factory
         }
 };
 
-int main()
-{
+int main() {
     //factory* fac = new factory();
     //product* pro1 = fac->creatProduct("A");
     //product* pro2 = fac->creatProduct("B");

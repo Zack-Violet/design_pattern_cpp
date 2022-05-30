@@ -1,48 +1,39 @@
 #include <iostream>
 
-class systemA
-{
+class systemA {
     public:
         virtual ~systemA() {}
-        void operationA()
-        {
+        void operationA() {
             std::cout << "systemA operationA()" << std::endl;
         }
 };
 
-class systemB
-{
+class systemB {
     public:
         virtual ~systemB() {}
-        void operationB()
-        {
+        void operationB() {
             std::cout << "systemB operationB()" << std::endl;
         }
 };
 
-class systemC
-{
+class systemC {
     public:
         virtual ~systemC() {}
-        void operationC()
-        {
+        void operationC() {
             std::cout << "systemC operationC()" << std::endl;
         }
 };
 
-class Facade
-{
+class Facade {
     public:
         Facade() : sysA(), sysB(), sysC() {}
 
-        void operation()
-        {
+        void operation() {
             sysA->operationA();
             sysB->operationB();
             sysC->operationC();
         }
-        void operation1()
-        {
+        void operation1() {
             sysC->operationC();
             sysB->operationB();
         }
@@ -53,8 +44,7 @@ class Facade
         systemC* sysC;
 };
 
-int main()
-{
+int main() {
     Facade* fd = new Facade();
 
     fd->operation();

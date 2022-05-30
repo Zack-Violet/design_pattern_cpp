@@ -1,18 +1,15 @@
 #include <iostream>
 
-class Receive
-{
+class Receive {
     public:
         Receive() {}
         ~Receive() {}
-        void action()
-        {
+        void action() {
             std::cout << "Receive action()" << std::endl;
         }
 };
 
-class Command
-{
+class Command {
     public:
         Command(Receive* r) : rcv(r) {}
         virtual ~Command() {}
@@ -22,25 +19,21 @@ class Command
         Receive* rcv;
 };
 
-class ConcreteCommand : public Command
-{
+class ConcreteCommand : public Command {
     public:
         ConcreteCommand(Receive* i) : Command(i) {}
         ~ConcreteCommand() {}
-        void execute()
-        {
+        void execute() {
             std::cout << "ConcreteCommand execute() -> Receive action()" << std::endl;
             rcv->action();
         }
 };
 
-class Invoker
-{
+class Invoker {
     public:
         Invoker(Command* c) : cmd(c) {}
         ~Invoker() {}
-        void call()
-        {
+        void call() {
             std::cout << "Invoker call() -> ConcreteCommand execute()" << std::endl;
             cmd->execute();
         }
@@ -49,8 +42,7 @@ class Invoker
         Command* cmd;
 };
 
-int main()
-{
+int main() {
     Receive* rcv = new Receive();
     Command* cmd = new ConcreteCommand(rcv);
     Invoker* ivk = new Invoker(cmd);

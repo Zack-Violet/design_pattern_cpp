@@ -1,29 +1,24 @@
 #include <iostream>
 
-class Component
-{
+class Component {
     public:
         virtual ~Component() {}
         virtual void operation() = 0;
 };
 
-class ConcreteComponent : public Component
-{
+class ConcreteComponent : public Component {
     public:
         virtual ~ConcreteComponent() {}
-        virtual void operation()
-        {
+        virtual void operation() {
             std::cout << "normal ConcreteComponent operation()" << std::endl;
         }
 };
 
-class Decorator : public Component
-{
+class Decorator : public Component {
     public:
         Decorator(Component* tcom) : comp(tcom) {}
         virtual ~Decorator() {}
-        virtual void operation()
-        {
+        virtual void operation() {
             comp->operation();
         }
 
@@ -31,38 +26,31 @@ class Decorator : public Component
         Component* comp;
 };
 
-class ConcreteDecoratorA : public Decorator
-{
+class ConcreteDecoratorA : public Decorator {
     public:
         ConcreteDecoratorA(Component* m) : Decorator(m) {}
-        virtual void operation()
-        {
+        virtual void operation() {
             Decorator::operation();
             addOperationA();
         }
-        void addOperationA()
-        {
+        void addOperationA() {
             std::cout << "ConcreteDecoratorA addOperationA()" << std::endl;
         }
 };
 
-class ConcreteDecoratorB : public Decorator
-{
+class ConcreteDecoratorB : public Decorator {
     public:
         ConcreteDecoratorB(Component* m) : Decorator(m) {}
-        virtual void operation()
-        {
+        virtual void operation() {
             Decorator::operation();
             addOperationB();
         }
-        void addOperationB()
-        {
+        void addOperationB() {
             std::cout << "ConcreteDecoratorB addOperationB()" << std::endl;
         }
 };
 
-int main()
-{
+int main() {
     ConcreteComponent* comp = new ConcreteComponent();
     ConcreteDecoratorA* decpa = new ConcreteDecoratorA(comp);
     ConcreteDecoratorB* decpb = new ConcreteDecoratorB(decpa);

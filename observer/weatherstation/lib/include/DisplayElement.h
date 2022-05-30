@@ -5,48 +5,39 @@
 #include <memory>
 
 class Subject;
-class Observer
-{
+class Observer {
     protected:
-        virtual ~Observer()
-        {
+        virtual ~Observer() {
             std::cout << "Observer desruct" << std::endl;
         }
 
     public:
-        Observer()
-        {
+        Observer() {
             std::cout << "Observer construct" << std::endl;
         }
         virtual void update(float, float, float) = 0;
 };
 
-class DisplayElement
-{
+class DisplayElement {
     protected:
-        virtual ~DisplayElement()
-        {
+        virtual ~DisplayElement() {
             std::cout << "DisplayElement destruct" << std::endl;
         }
 
     public:
-        DisplayElement()
-        {
+        DisplayElement() {
             std::cout << "DisplayElement construct" << std::endl;
         }
         virtual void display() = 0;
 };
 
-class HeatIndexDisplay : private Observer, private DisplayElement
-{
+class HeatIndexDisplay : private Observer, private DisplayElement {
     public:
-        HeatIndexDisplay()
-        {
+        HeatIndexDisplay() {
             std::cout << "HeatIndexDisplay construct" << std::endl;
         }
         HeatIndexDisplay(Subject*);
-        ~HeatIndexDisplay()
-        {
+        ~HeatIndexDisplay() {
             std::cout << "HeatIndexDisplay destruct" << std::endl;
         }
         void update(float, float, float);
@@ -58,16 +49,13 @@ class HeatIndexDisplay : private Observer, private DisplayElement
         Subject* _weatherData;
 };
 
-class StatisticsDisplay : private Observer, private DisplayElement
-{
+class StatisticsDisplay : private Observer, private DisplayElement {
     public:
-        StatisticsDisplay()
-        {
+        StatisticsDisplay() {
             std::cout << "StatisticsDisplay construct" << std::endl;
         }
         StatisticsDisplay(Subject*);
-        ~StatisticsDisplay()
-        {
+        ~StatisticsDisplay() {
             std::cout << "StatisticsDisplay destruct" << std::endl;
         }
         void update(float, float, float);
@@ -87,16 +75,13 @@ class StatisticsDisplay : private Observer, private DisplayElement
         Subject* _weatherData;
 };
 
-class ForecastDisplay : private Observer, private DisplayElement
-{
+class ForecastDisplay : private Observer, private DisplayElement {
     public:
-        ForecastDisplay()
-        {
+        ForecastDisplay() {
             std::cout << "ForecastDisplay construct" << std::endl;
         }
         ForecastDisplay(Subject*);
-        ~ForecastDisplay()
-        {
+        ~ForecastDisplay() {
             std::cout << "ForecastDisplay destruct" << std::endl;
         }
         void update(float, float, float);
@@ -112,16 +97,13 @@ class ForecastDisplay : private Observer, private DisplayElement
         Subject* _weatherData = 0;
 };
 
-class CurrentConditionDisplay : private Observer, private DisplayElement
-{
+class CurrentConditionDisplay : private Observer, private DisplayElement {
     public:
-        CurrentConditionDisplay()
-        {
+        CurrentConditionDisplay() {
             std::cout << "CurrentConditionDisplay construct" << std::endl;
         }
         CurrentConditionDisplay(Subject*);
-        ~CurrentConditionDisplay()
-        {
+        ~CurrentConditionDisplay() {
             std::cout << "CurrentConditionDisplay destruct" << std::endl;
         }
         void update(float, float, float);

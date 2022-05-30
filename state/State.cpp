@@ -1,50 +1,41 @@
 #include <iostream>
 
-class State
-{
+class State {
     public:
         virtual ~State() {}
         virtual void handle() = 0;
 };
 
-class ConcreteStateA : public State
-{
+class ConcreteStateA : public State {
     public:
         ConcreteStateA() {}
         ~ConcreteStateA() {}
-        void handle()
-        {
+        void handle() {
             std::cout << "ConcreteStateA handle()" << std::endl;
         }
 };
 
-class ConcreteStateB : public State
-{
+class ConcreteStateB : public State {
     public:
         ConcreteStateB() {}
         ~ConcreteStateB() {}
-        void handle()
-        {
+        void handle() {
             std::cout << "ConcreteStateB handle()" << std::endl;
         }
 };
 
-class Context
-{
+class Context {
     public:
         Context() : stat() {}
-        ~Context()
-        {
+        ~Context() {
             delete stat;
         }
-        void changeState(State* const s)
-        {
+        void changeState(State* const s) {
             if (stat)
                 delete stat;
             stat = s;
         }
-        void request()
-        {
+        void request() {
             std::cout << "Context request()" << std::endl;
             stat->handle();
         }
@@ -53,8 +44,7 @@ class Context
         State* stat;
 };
 
-int main()
-{
+int main() {
     Context* context = new Context();
     context->changeState(new ConcreteStateA());
     context->request();

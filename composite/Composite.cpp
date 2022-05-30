@@ -2,57 +2,44 @@
 #include <vector>
 #include <memory>
 
-class Component
-{
+class Component {
     public:
-        Component()
-        {
+        Component() {
             std::cout << "Component construct" << std::endl;
         }
-        virtual ~Component()
-        {
+        virtual ~Component() {
             std::cout << "Component destruct" << std::endl;
         }
 
-        virtual void add(Component*)
-        {
+        virtual void add(Component*) {
             std::cout << "add Component" << std::endl;
         }
-        virtual void remove(const unsigned int)
-        {
+        virtual void remove(const unsigned int) {
             std::cout << "remove Component" << std::endl;
         }
         virtual void operation() = 0;
 };
 
-class Composite : public Component
-{
+class Composite : public Component {
     public:
-        Composite()
-        {
+        Composite() {
             std::cout << "Composite construct" << std::endl;
         }
-        ~Composite()
-        {
+        ~Composite() {
             std::cout << "Composite destruct" << std::endl;
         }
 
-        Component* getChild(const unsigned int _index)
-        {
+        Component* getChild(const unsigned int _index) {
             return _children[_index].get();
         }
-        void add(Component* _com)
-        {
+        void add(Component* _com) {
             _children.push_back(std::unique_ptr<Component>(_com));
         }
-        void remove(const unsigned int _index)
-        {
+        void remove(const unsigned int _index) {
             _children.erase(_children.begin() + _index);
         }
-        void operation()
-        {
-            for (unsigned int i = 0; i < _children.size(); ++i)
-            {
+        void operation() {
+            for (unsigned int i = 0; i < _children.size(); ++i) {
                 _children[i]->operation();
             }
         }
@@ -61,20 +48,16 @@ class Composite : public Component
         std::vector<std::unique_ptr<Component>> _children;
 };
 
-class Leaf : public Component
-{
+class Leaf : public Component {
     public:
-        Leaf(const unsigned int _i) : _id(_i)
-        {
+        Leaf(const unsigned int _i) : _id(_i) {
             std::cout << "Leaf construct" << std::endl;
         }
-        ~Leaf()
-        {
+        ~Leaf() {
             std::cout << "Leaf destruct" << std::endl;
         }
 
-        void operation()
-        {
+        void operation() {
             std::cout << "Leaf " << _id << " operation" << std::endl;
         }
 
@@ -82,12 +65,10 @@ class Leaf : public Component
         unsigned int _id;
 };
 
-int main()
-{
+int main() {
     std::unique_ptr<Composite> _composite(new Composite());
 
-    for (int i = 0; i < 5; ++i)
-    {
+    for (int i = 0; i < 5; ++i) {
         _composite->add(new Leaf(i));
     }
 

@@ -6,16 +6,13 @@
 #include "include/PizzaIngredientFactory.h"
 #include "include/PizzaStore.h"
 
-PizzaStore::PizzaStore()
-{
+PizzaStore::PizzaStore() {
     std::cout << std::setw(40) << "PizzaStore construct" << std::endl;
 }
-PizzaStore::~PizzaStore()
-{
+PizzaStore::~PizzaStore() {
     std::cout << std::setw(39) << "PizzaStore destruct" << std::endl;
 }
-std::unique_ptr<Pizza> PizzaStore::orderPizza(const char _choose)
-{
+std::unique_ptr<Pizza> PizzaStore::orderPizza(const char _choose) {
     createPizza(_choose);
     _pizza->prepare();
     _pizza->bake();
@@ -25,19 +22,15 @@ std::unique_ptr<Pizza> PizzaStore::orderPizza(const char _choose)
     return std::move(_pizza);
 }
 
-NYPizzaStore::NYPizzaStore()
-{
+NYPizzaStore::NYPizzaStore() {
     std::cout << std::setw(40) << "NYPizzaStore construct" << std::endl;
 }
-NYPizzaStore::~NYPizzaStore()
-{
+NYPizzaStore::~NYPizzaStore() {
     std::cout << std::setw(39) << "NYPizzaStore destruct" << std::endl;
 }
-void NYPizzaStore::createPizza(const char _choose_)
-{
+void NYPizzaStore::createPizza(const char _choose_) {
     std::unique_ptr<PizzaIngredientFactory> ingredientFactory(new NYPizzaIngredientFactory());
-    switch(_choose_)
-    {
+    switch(_choose_) {
         case Cheese_Pizza:
             _pizza = std::unique_ptr<Pizza>(new CheesePizza(std::move(ingredientFactory)));
             _pizza->setName("NYStyleCheesePizza");
@@ -61,19 +54,15 @@ void NYPizzaStore::createPizza(const char _choose_)
     }
 }
 
-ChicagoPizzaStore::ChicagoPizzaStore()
-{
+ChicagoPizzaStore::ChicagoPizzaStore() {
     std::cout << std::setw(40) << "ChicagoPizzaStore construct" << std::endl;
 }
-ChicagoPizzaStore::~ChicagoPizzaStore()
-{
+ChicagoPizzaStore::~ChicagoPizzaStore() {
     std::cout << std::setw(39) << "ChicagoPizzaStore destruct" << std::endl;
 }
-void ChicagoPizzaStore::createPizza(const char _choose_)
-{
+void ChicagoPizzaStore::createPizza(const char _choose_) {
     std::unique_ptr<PizzaIngredientFactory> ingredientFactory(new ChicagoPizzaIngredientFactory());
-    switch(_choose_)
-    {
+    switch(_choose_) {
         case Cheese_Pizza:
             _pizza = std::unique_ptr<Pizza>(new CheesePizza(std::move(ingredientFactory)));
             _pizza->setName("ChicagoStyleCheesePizza");

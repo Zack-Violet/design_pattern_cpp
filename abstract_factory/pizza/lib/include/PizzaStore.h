@@ -7,8 +7,7 @@
 #include "Pizza.h"
 #include "PizzaIngredientFactory.h"
 
-class PizzaStore
-{
+class PizzaStore {
     public:
         PizzaStore();
         virtual ~PizzaStore();
@@ -27,16 +26,14 @@ class PizzaStore
         std::unique_ptr<Pizza> _pizza;
 };
 
-class NYPizzaStore : public PizzaStore
-{
+class NYPizzaStore : public PizzaStore {
     public:
         NYPizzaStore();
         ~NYPizzaStore();
         void createPizza(const char);
 };
 
-class ChicagoPizzaStore : public PizzaStore
-{
+class ChicagoPizzaStore : public PizzaStore {
     public:
         ChicagoPizzaStore();
         ~ChicagoPizzaStore();

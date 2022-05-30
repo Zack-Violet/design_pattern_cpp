@@ -4,8 +4,7 @@
 #include "include/HomeTheaterFacade.h"
 #include "include/ElectricalAppliances.h"
 
-HomeTheaterFacade::HomeTheaterFacade()
-{
+HomeTheaterFacade::HomeTheaterFacade() {
     _cd = std::unique_ptr<CDPlayer>(new CDPlayer());
     _dvd = std::unique_ptr<DvdPlayer>(new DvdPlayer());
     _tuner = std::unique_ptr<Tuner>(new Tuner());
@@ -16,8 +15,7 @@ HomeTheaterFacade::HomeTheaterFacade()
     _lights = std::unique_ptr<TheaterLights>(new TheaterLights());
 }
 
-void HomeTheaterFacade::watchMovie(std::string _movie)
-{
+void HomeTheaterFacade::watchMovie(std::string _movie) {
     std::cout << "Ready to enjoy movie..." << std::endl;
     _popcorn->powerOn();
     _popcorn->popcorn();
@@ -34,8 +32,7 @@ void HomeTheaterFacade::watchMovie(std::string _movie)
     std::cout << "Now enjoying your movie" << std::endl;
 }
 
-void HomeTheaterFacade::endMovie()
-{
+void HomeTheaterFacade::endMovie() {
     std::cout << "Shutting movie theater down..." << std::endl;
     _popcorn->poweroff();
     _lights->powerOn();

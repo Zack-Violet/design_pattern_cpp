@@ -6,8 +6,7 @@
 #include <memory>
 #include "PizzaIngredientFactory.h"
 
-class Pizza
-{
+class Pizza {
     public:
         Pizza();
         virtual ~Pizza();
@@ -30,8 +29,7 @@ class Pizza
         std::string _name;
 };
 
-class CheesePizza : public Pizza
-{
+class CheesePizza : public Pizza {
     public:
         CheesePizza(std::unique_ptr<PizzaIngredientFactory>);
         ~CheesePizza();
@@ -44,8 +42,7 @@ class CheesePizza : public Pizza
         std::unique_ptr<PizzaIngredientFactory> _ingredientFactory;
 };
 
-class PepperoniPizza : public Pizza
-{
+class PepperoniPizza : public Pizza {
     public:
         PepperoniPizza(std::unique_ptr<PizzaIngredientFactory>);
         ~PepperoniPizza();
@@ -57,8 +54,7 @@ class PepperoniPizza : public Pizza
         std::unique_ptr<PizzaIngredientFactory> _ingredientFactory;
 };
 
-class ClamPizza : public Pizza
-{
+class ClamPizza : public Pizza {
     public:
         ClamPizza(std::unique_ptr<PizzaIngredientFactory>);
         ~ClamPizza();
@@ -70,8 +66,7 @@ class ClamPizza : public Pizza
         std::unique_ptr<PizzaIngredientFactory> _ingredientFactory;
 };
 
-class VeggiePizza : public Pizza
-{
+class VeggiePizza : public Pizza {
     public:
         VeggiePizza(std::unique_ptr<PizzaIngredientFactory>);
         ~VeggiePizza();

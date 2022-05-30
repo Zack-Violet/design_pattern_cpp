@@ -4,8 +4,7 @@
 #include <iostream>
 #include <string>
 
-class CDPlayer
-{
+class CDPlayer {
     public:
         CDPlayer() {}
         ~CDPlayer() {}
@@ -25,8 +24,7 @@ class CDPlayer
         int _currentTrack;
 };
 
-class DvdPlayer
-{
+class DvdPlayer {
     public:
         DvdPlayer() {}
         ~DvdPlayer() {}
@@ -48,8 +46,7 @@ class DvdPlayer
         int _currentTrack;
 };
 
-class Tuner
-{
+class Tuner {
     public:
         Tuner() {}
         ~Tuner() {}
@@ -66,8 +63,7 @@ class Tuner
         double _frequency;
 };
 
-class PopcornPopper
-{
+class PopcornPopper {
     public:
         PopcornPopper() {}
         ~PopcornPopper() {}
@@ -81,8 +77,7 @@ class PopcornPopper
         std::string _description;
 };
 
-class Projector
-{
+class Projector {
     public:
         Projector() {}
         ~Projector() {}
@@ -97,8 +92,7 @@ class Projector
         std::string _description;
 };
 
-class Screen
-{
+class Screen {
     public:
         Screen() {}
         ~Screen() {}
@@ -111,8 +105,7 @@ class Screen
         std::string _description;
 };
 
-class TheaterLights
-{
+class TheaterLights {
     public:
         TheaterLights() {}
         ~TheaterLights() {}
@@ -126,8 +119,7 @@ class TheaterLights
         std::string _description;
 };
 
-class Amplifier
-{
+class Amplifier {
     public:
         Amplifier() {}
         ~Amplifier() {}

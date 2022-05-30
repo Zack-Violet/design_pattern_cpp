@@ -1,20 +1,17 @@
 #include <iostream>
 #include <map>
 
-class Flyweight
-{
+class Flyweight {
     public:
         virtual ~Flyweight() {}
         virtual void operation() = 0;
 };
 
-class ConcreteFlyweight : public Flyweight
-{
+class ConcreteFlyweight : public Flyweight {
     public:
         ConcreteFlyweight(const int all_state) : state(all_state) {}
         ~ConcreteFlyweight() {}
-        void operation()
-        {
+        void operation() {
             std::cout << "ConcreteFlyweight with state " << state << std::endl;
         }
 
@@ -22,13 +19,11 @@ class ConcreteFlyweight : public Flyweight
         int state;
 };
 
-class UnsharedConcreteFlyweight : public Flyweight
-{
+class UnsharedConcreteFlyweight : public Flyweight {
     public:
         UnsharedConcreteFlyweight(const int intrinsic_state) : state(intrinsic_state) {}
         ~UnsharedConcreteFlyweight() {}
-        void operation()
-        {
+        void operation() {
             std::cout << "UnsharedConcreteFlyweight with state " << state << std::endl;
         }
 
@@ -36,22 +31,17 @@ class UnsharedConcreteFlyweight : public Flyweight
         int state;
 };
 
-class FlyweightFactory
-{
+class FlyweightFactory {
     public:
         FlyweightFactory() {}
-        ~FlyweightFactory()
-        {
-            for (auto it = fws.begin(); it != fws.end(); it++)
-            {
+        ~FlyweightFactory() {
+            for (auto it = fws.begin(); it != fws.end(); it++) {
                 delete it->second;
             }
             fws.clear();
         }
-        Flyweight* getFlyweight(const int key)
-        {
-            if (fws.find(key) != fws.end())
-            {
+        Flyweight* getFlyweight(const int key) {
+            if (fws.find(key) != fws.end()) {
                 std::cout << "There is already exit a Flyweight object. Return exit object." << std::endl;
                 return fws[key];
             }
@@ -65,8 +55,7 @@ class FlyweightFactory
         std::map<int, Flyweight*> fws;
 };
 
-int main()
-{
+int main() {
     FlyweightFactory* fwf = new FlyweightFactory;
     fwf->getFlyweight(1)->operation();
     fwf->getFlyweight(2)->operation();

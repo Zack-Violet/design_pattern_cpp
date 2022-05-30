@@ -6,8 +6,7 @@
 #include <string>
 
 class GumballMachine;
-class State
-{
+class State {
     public:
         State() {}
         virtual ~State() {}
@@ -18,8 +17,7 @@ class State
         virtual std::string toString() = 0;
 };
 
-class NoQuarterState : public State
-{
+class NoQuarterState : public State {
     public:
         NoQuarterState(GumballMachine* _gumball_machine_) : _gumball_machine(_gumball_machine_) {}
         ~NoQuarterState() {}
@@ -34,8 +32,7 @@ class NoQuarterState : public State
         GumballMachine* _gumball_machine;
 };
 
-class HasQuarterState : public State
-{
+class HasQuarterState : public State {
     public:
         HasQuarterState(GumballMachine* _gumball_machine_) : _gumball_machine(_gumball_machine_) {}
         ~HasQuarterState() {}
@@ -50,8 +47,7 @@ class HasQuarterState : public State
         GumballMachine* _gumball_machine;
 };
 
-class SoldState : public State
-{
+class SoldState : public State {
     public:
         SoldState(GumballMachine* _gumball_machine_) : _gumball_machine(_gumball_machine_) {}
         ~SoldState() {}
@@ -66,8 +62,7 @@ class SoldState : public State
         GumballMachine* _gumball_machine;
 };
 
-class SoldOutState : public State
-{
+class SoldOutState : public State {
     public:
         SoldOutState(GumballMachine* _gumball_machine_) : _gumball_machine(_gumball_machine_) {}
         ~SoldOutState() {}
@@ -82,8 +77,7 @@ class SoldOutState : public State
         GumballMachine* _gumball_machine;
 };
 
-class WinnerState : public State
-{
+class WinnerState : public State {
     public:
         WinnerState(GumballMachine* _gumball_machine_) : _gumball_machine(_gumball_machine_) {}
         ~WinnerState() {}

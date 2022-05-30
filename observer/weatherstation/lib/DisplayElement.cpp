@@ -4,15 +4,13 @@
 #include "include/DisplayElement.h"
 #include "include/WeatherData.h"
 
-HeatIndexDisplay::HeatIndexDisplay(Subject* _data)
-{
+HeatIndexDisplay::HeatIndexDisplay(Subject* _data) {
     assert(_data);
     this->_weatherData = _data;
     _weatherData->registerObserver(this);
 }
 
-void HeatIndexDisplay::update(float _temp, float _hum, float _pre)
-{
+void HeatIndexDisplay::update(float _temp, float _hum, float _pre) {
     assert(_temp);
     assert(_hum);
     assert(_pre);
@@ -20,8 +18,7 @@ void HeatIndexDisplay::update(float _temp, float _hum, float _pre)
     this->display();
 }
 
-void HeatIndexDisplay::calculateHeatIndex(float t, float rh)
-{
+void HeatIndexDisplay::calculateHeatIndex(float t, float rh) {
     assert(t);
     assert(rh);
     this->_heatindex = (float)((16.923 + (0.185212 * t) + (5.37941 * rh) - (0.100254 * t * rh)
@@ -34,22 +31,19 @@ void HeatIndexDisplay::calculateHeatIndex(float t, float rh)
             (0.0000000000481975 * (t * t * t * rh * rh * rh)));
 }
 
-void HeatIndexDisplay::display()
-{
+void HeatIndexDisplay::display() {
     std::cout << "\033[31m--------------------------HeatIndexDisplay---------------------------\033[0m" << std::endl;
     std::cout << "HeatIndex is " << this->_heatindex << std::endl;
     std::cout << "--------------------------HeatIndexDisplay---------------------------" << std::endl;
 }
 
-StatisticsDisplay::StatisticsDisplay(Subject* _data)
-{
+StatisticsDisplay::StatisticsDisplay(Subject* _data) {
     assert(_data);
     this->_weatherData = _data;
     _weatherData->registerObserver(this);
 }
 
-void StatisticsDisplay::update(float _temp, float _hum, float _pre)
-{
+void StatisticsDisplay::update(float _temp, float _hum, float _pre) {
     assert(_temp);
     assert(_hum);
     assert(_pre);
@@ -68,8 +62,7 @@ void StatisticsDisplay::update(float _temp, float _hum, float _pre)
     this->display();
 }
 
-void StatisticsDisplay::display()
-{
+void StatisticsDisplay::display() {
     std::cout << "\033[31m--------------------------StatisticsDisplay--------------------------\033[0m" << std::endl;
     std::cout << "Max temperature is " << this->_maxTemp << ", Min temperature is " << this->_minTemp << std::endl;
     std::cout << "Temperature sum is " << this->_tempSum << std::endl;
@@ -80,15 +73,13 @@ void StatisticsDisplay::display()
     std::cout << "--------------------------StatisticsDisplay--------------------------" << std::endl;
 }
 
-ForecastDisplay::ForecastDisplay(Subject* _data)
-{
+ForecastDisplay::ForecastDisplay(Subject* _data) {
     assert(_data);
     this->_weatherData = _data;
     _weatherData->registerObserver(this);
 }
 
-void ForecastDisplay::update(float _temp, float _hum, float _pre)
-{
+void ForecastDisplay::update(float _temp, float _hum, float _pre) {
     assert(_temp);
     assert(_hum);
     assert(_pre);
@@ -102,8 +93,7 @@ void ForecastDisplay::update(float _temp, float _hum, float _pre)
     this->display();
 }
 
-void ForecastDisplay::display()
-{
+void ForecastDisplay::display() {
     std::cout << "\033[31m---------------------------ForecastDisplay---------------------------\033[0m" << std::endl;
     std::cout << "Last temperature is " << this->_lastTemperature << ", Current temperature is " << this->_currentTemperature << std::endl;
     std::cout << "Last humidity is " << this->_lastHumidity << ", Current humidity is " << this->_currentHumidity << std::endl;
@@ -111,16 +101,14 @@ void ForecastDisplay::display()
     std::cout << "---------------------------ForecastDisplay---------------------------" << std::endl;
 }
 
-CurrentConditionDisplay::CurrentConditionDisplay(Subject* _data)
-{
+CurrentConditionDisplay::CurrentConditionDisplay(Subject* _data) {
     assert(_data);
 
     this->_weatherData = _data;
     _weatherData->registerObserver(this);
 }
 
-void CurrentConditionDisplay::update(float _temp, float _hum, float _pre)
-{
+void CurrentConditionDisplay::update(float _temp, float _hum, float _pre) {
     assert(_temp);
     assert(_hum);
     assert(_pre);
@@ -131,8 +119,7 @@ void CurrentConditionDisplay::update(float _temp, float _hum, float _pre)
     this->display();
 }
 
-void CurrentConditionDisplay::display()
-{
+void CurrentConditionDisplay::display() {
     std::cout << "\033[31m-----------------------CurrentConditionDisplay-----------------------\033[0m" << std::endl;
     std::cout << "Temperature is " << this->_temperature << std::endl;
     std::cout << "Humidity is " << this->_humidity << std::endl;

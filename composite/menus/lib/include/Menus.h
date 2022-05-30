@@ -6,8 +6,7 @@
 #include <vector>
 #include <memory>
 
-class MenuComponent
-{
+class MenuComponent {
     public:
         MenuComponent();
         virtual ~MenuComponent();
@@ -22,8 +21,7 @@ class MenuComponent
         virtual void print();
 };
 
-class Menu : public MenuComponent
-{
+class Menu : public MenuComponent {
     public:
         Menu(const std::string&, const std::string&);
         ~Menu();
@@ -41,8 +39,7 @@ class Menu : public MenuComponent
         std::string _description;
 };
 
-class MenuItem : public MenuComponent
-{
+class MenuItem : public MenuComponent {
     public:
         MenuItem(const std::string&, const std::string&, const bool&, const double&);
         ~MenuItem();

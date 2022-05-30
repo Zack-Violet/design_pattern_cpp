@@ -5,39 +5,32 @@
 #include "include/Pizza.h"
 #include "include/PizzaIngredientFactory.h"
 
-Pizza::Pizza()
-{
+Pizza::Pizza() {
     std::cout << std::setw(40) << "Pizza construct" << std::endl;
 }
 
-Pizza::~Pizza()
-{
+Pizza::~Pizza() {
     std::cout << std::setw(39) << "Pizza destruct" << std::endl;
 }
 
-std::string Pizza::getName()
-{
+std::string Pizza::getName() {
     return this->_name + " : "
             + _dough->getDough() + " -> " + _sauce->getSauce() + " -> "
             + _cheese->getCheese() + " -> " + _clam->getClams() + " -> "
             + _pepperoni->getPepperoni() + " -> " + _veggies->getVeggies();
 }
 
-void Pizza::setName(const std::string _name_)
-{
+void Pizza::setName(const std::string _name_) {
     this->_name = _name_;
 }
 
-CheesePizza::CheesePizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
-{
+CheesePizza::CheesePizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif)) {
     std::cout << std::setw(40) << "CheesePizza construct" << std::endl;
 }
-CheesePizza::~CheesePizza()
-{
+CheesePizza::~CheesePizza() {
     std::cout << std::setw(39) << "CheesePizza destruct" << std::endl;
 }
-void CheesePizza::prepare()
-{
+void CheesePizza::prepare() {
     std::cout << "\033[36mPrepare CheesePizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
@@ -46,29 +39,23 @@ void CheesePizza::prepare()
     _pepperoni = _ingredientFactory->createPepperoni();
     _veggies = _ingredientFactory->createVeggies();
 }
-void CheesePizza::bake()
-{
+void CheesePizza::bake() {
     std::cout << "\033[36mBake CheesePizza" << std::endl;
 }
-void CheesePizza::cut()
-{
+void CheesePizza::cut() {
     std::cout << "Cut CheesePizza" << std::endl;
 }
-void CheesePizza::box()
-{
+void CheesePizza::box() {
     std::cout << "Box CheesePizza\033[0m" << std::endl;
 }
 
-PepperoniPizza::PepperoniPizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
-{
+PepperoniPizza::PepperoniPizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif)) {
     std::cout << std::setw(40) << "PepperoniPizza construct" << std::endl;
 }
-PepperoniPizza::~PepperoniPizza()
-{
+PepperoniPizza::~PepperoniPizza() {
     std::cout << std::setw(39) << "PepperoniPizza destruct" << std::endl;
 }
-void PepperoniPizza::prepare()
-{
+void PepperoniPizza::prepare() {
     std::cout << "\033[36mPrepare PepperoniPizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
@@ -77,29 +64,23 @@ void PepperoniPizza::prepare()
     _pepperoni = _ingredientFactory->createPepperoni();
     _veggies = _ingredientFactory->createVeggies();
 }
-void PepperoniPizza::bake()
-{
+void PepperoniPizza::bake() {
     std::cout << "\033[36mBake PepperoniPizza" << std::endl;
 }
-void PepperoniPizza::cut()
-{
+void PepperoniPizza::cut() {
     std::cout << "Cut PepperoniPizza" << std::endl;
 }
-void PepperoniPizza::box()
-{
+void PepperoniPizza::box() {
     std::cout << "Box PepperoniPizza\033[0m" << std::endl;
 }
 
-ClamPizza::ClamPizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
-{
+ClamPizza::ClamPizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif)) {
     std::cout << std::setw(40) << "ClamPizza construct" << std::endl;
 }
-ClamPizza::~ClamPizza()
-{
+ClamPizza::~ClamPizza() {
     std::cout << std::setw(39) << "ClamPizza destruct" << std::endl;
 }
-void ClamPizza::prepare()
-{
+void ClamPizza::prepare() {
     std::cout << "\033[36mPrepare ClamPizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
@@ -108,46 +89,36 @@ void ClamPizza::prepare()
     _pepperoni = _ingredientFactory->createPepperoni();
     _veggies = _ingredientFactory->createVeggies();
 }
-void ClamPizza::bake()
-{
+void ClamPizza::bake() {
     std::cout << "\033[36mBake ClamPizza" << std::endl;
 }
-void ClamPizza::cut()
-{
+void ClamPizza::cut() {
     std::cout << "Cut ClamPizza" << std::endl;
 }
-void ClamPizza::box()
-{
+void ClamPizza::box() {
     std::cout << "Box ClamPizza\033[0m" << std::endl;
 }
 
-VeggiePizza::VeggiePizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif))
-{
+VeggiePizza::VeggiePizza(std::unique_ptr<PizzaIngredientFactory> _pif) : _ingredientFactory(std::move(_pif)) {
     std::cout << std::setw(40) << "VeggiePizza construct" << std::endl;
 }
-VeggiePizza::~VeggiePizza()
-{
+VeggiePizza::~VeggiePizza() {
     std::cout << std::setw(39) << "VeggiePizza destruct" << std::endl;
 }
-void VeggiePizza::prepare()
-{
+void VeggiePizza::prepare() {
     std::cout << "\033[36mPrepare VeggiePizza\033[0m" << std::endl;
     _dough = _ingredientFactory->createDough();
     _sauce = _ingredientFactory->createSauce();
     _cheese = _ingredientFactory->createCheese();
     _clam = _ingredientFactory->createClam();
     _pepperoni = _ingredientFactory->createPepperoni();
-    _veggies = _ingredientFactory->createVeggies();
-}
-void VeggiePizza::bake()
-{
+    _veggies = _ingredientFactory->createVeggies(); }
+void VeggiePizza::bake() {
     std::cout << "\033[36mBake VeggiePizza" << std::endl;
 }
-void VeggiePizza::cut()
-{
+void VeggiePizza::cut() {
     std::cout << "Cut VeggiePizza" << std::endl;
 }
-void VeggiePizza::box()
-{
+void VeggiePizza::box() {
     std::cout << "Box VeggiePizza\033[0m" << std::endl;
 }

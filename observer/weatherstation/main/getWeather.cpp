@@ -3,8 +3,7 @@
 #include "DisplayElement.h"
 #include "WeatherData.h"
 
-int main()
-{
+int main() {
     std::shared_ptr<WeatherData> _weatherData(new WeatherData());
 
     std::unique_ptr<HeatIndexDisplay> _heat(new HeatIndexDisplay(_weatherData.get()));

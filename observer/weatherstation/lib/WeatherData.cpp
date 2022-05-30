@@ -4,22 +4,19 @@
 #include "include/WeatherData.h"
 #include "include/DisplayElement.h"
 
-void WeatherData::registerObserver(Observer* _obs)
-{
+void WeatherData::registerObserver(Observer* _obs) {
     assert(_obs);
     std::cout << "registerObserver" << std::endl;
     this->_observers.push_back(_obs);
 }
 
-void WeatherData::removeObserver(Observer* _obs)
-{
+void WeatherData::removeObserver(Observer* _obs) {
     assert(_obs);
     std::cout << "removeObserver" << std::endl;
     this->_observers.remove(_obs);
 }
 
-void WeatherData::notifyObservers()
-{
+void WeatherData::notifyObservers() {
     std::cout << "notifyObservers update data" << std::endl;
     if (!this->_observers.empty())
         for (auto it = this->_observers.begin(); it != this->_observers.end(); it++)
@@ -28,14 +25,12 @@ void WeatherData::notifyObservers()
         }
 }
 
-void WeatherData::measurementsChanged()
-{
+void WeatherData::measurementsChanged() {
     std::cout << "measurementsChanged" << std::endl;
     this->notifyObservers();
 }
 
-void WeatherData::setMeasurements(float _temp, float _hum, float _pre)
-{
+void WeatherData::setMeasurements(float _temp, float _hum, float _pre) {
     assert(_temp);
     assert(_hum);
     assert(_pre);
@@ -51,20 +46,17 @@ void WeatherData::setMeasurements(float _temp, float _hum, float _pre)
     this->measurementsChanged();
 }
 
-float WeatherData::getTemperature()
-{
+float WeatherData::getTemperature() {
     assert(this->_temperature);
     return this->_temperature;
 }
 
-float WeatherData::getHumidity()
-{
+float WeatherData::getHumidity() {
     assert(this->_humidity);
     return this->_humidity;
 }
 
-float WeatherData::getPressure()
-{
+float WeatherData::getPressure() {
     assert(this->_pressure);
     return this->_pressure;
 }

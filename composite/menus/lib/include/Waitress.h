@@ -5,8 +5,7 @@
 #include <memory>
 #include "Menus.h"
 
-class Waitress
-{
+class Waitress {
     public:
         Waitress(std::unique_ptr<MenuComponent>);
         ~Waitress();
